@@ -63,15 +63,23 @@ public with sharing class InsuranceFAQs {
  	}
     
     public class LLMResponse{
+       @InvocableVariable
 		public ResponseLLM response;
     }
     public class ResponseLLM{
-        public String text;
-        public List<Source> source;
+    //     @AuraEnabled
+    //     public String text;
+    //    @AuraEnabled
+    //     public List<Source> source;
+        @InvocableVariable
+        public List<AnsRes> ans;
     }
-    public class Source{
-        public String source_Id;
-        
+    public class AnsRes{
+        @InvocableVariable
+        public String text; 
+        // @AuraEnabled
+        // public String source;
     }
+    
     
 }
