@@ -1,0 +1,5 @@
+{
+  "title": "Claim Request Form",
+  "description": "Claim Request Form",
+  "lightning:type": "@apexClassType/c__ClaimRequestForm"
+}

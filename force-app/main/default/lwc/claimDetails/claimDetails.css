@@ -1,0 +1,71 @@
+:host {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures no content spills out of the card */
+}
+
+.custom-card {
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #c1c7d0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #fff 0%, #f9fbfd 100%);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden; /* Important: clips inner corners and shadows */
+}
+
+.custom-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.custom-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0070d2;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0070d2;
+    padding-bottom: 0.3rem;
+    background: transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.content-container {
+    background: #fff;
+    padding: 1.25rem 1.5rem;
+    margin-top: 0;
+    border-radius: 10px;
+    /* No border, no extra shadow, keeps the corners clean */
+}
+
+.field-container {
+    margin-bottom: 1.25rem;
+}
+
+.field-label {
+    font-weight: 600;
+    color: #263238;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.field-value {
+    font-size: 0.95rem;
+    color: #546e7a;
+    display: block;
+    line-height: 1.4;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: #8a99a6;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #e1e6eb;
+    font-style: italic;
+}

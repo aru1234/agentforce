@@ -1,0 +1,33 @@
+<template>
+    <div class="custom-card">
+        <h3 class="custom-title">
+            <lightning-icon icon-name="utility:description" size="small"></lightning-icon>
+            Claim Details
+        </h3>
+
+        <div class="content-container">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 field-container">
+                    <span class="field-label">Name: </span>
+                    <span class="field-value">{name}</span>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 field-container">
+                    <span class="field-label">Description: </span>
+                    <span class="field-value">{description}</span>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 field-container">
+                    <span class="field-label">Claim Type: </span>
+                    <span class="field-value">{claimType}</span>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 field-container">
+                    <span class="field-label">Claim Date: </span>
+                    <span class="field-value">{claimDate}</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-text">
+            For more details contact help desk.
+        </p>
+    </div>
+</template>

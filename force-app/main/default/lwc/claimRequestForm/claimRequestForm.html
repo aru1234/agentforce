@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Claim Form Details" icon-name="utility:description">
+        <div class="slds-p-horizontal_medium slds-p-vertical_medium">
+            <form class="slds-form slds-form_stacked">
+                <div class="slds-m-bottom_medium">
+                    <lightning-input 
+                        label="Enter Claim Type (Accident/Theft/Natural Disaster)" 
+                        name="claimType"
+                        value={claimType} 
+                        type="text" 
+                        onchange={handleInputChange}
+                        read-only={readOnly}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-m-bottom_medium">
+                    <lightning-input 
+                        label="Enter Name" 
+                        name="name"
+                        value={name} 
+                        type="text" 
+                        onchange={handleInputChange}
+                        read-only={readOnly}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-m-bottom_medium">
+                    <lightning-input 
+                        label="Enter Description" 
+                        name="description"
+                        value={description} 
+                        type="text" 
+                        onchange={handleInputChange}
+                        read-only={readOnly}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-m-bottom_medium">
+                    <lightning-input 
+                        label="Enter Claim Date" 
+                        name="claimDate"
+                        value={claimDate} 
+                        type="date" 
+                        onchange={handleInputChange}
+                        read-only={readOnly}>
+                    </lightning-input>
+                </div>
+
+                <!-- <div class="slds-m-top_medium slds-text-align_right">
+                    <lightning-button variant="brand" label="Submit Claim" type="button" onclick={handleClick}></lightning-button>
+                </div> -->
+            </form>
+        </div>
+    </lightning-card>
+</template>

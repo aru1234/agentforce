@@ -1,0 +1,5 @@
+{
+  "title": "My Claim Response",
+  "description": "My Claim Response",
+  "lightning:type": "@apexClassType/c__ExistingClaim"
+}
