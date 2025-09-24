@@ -7,20 +7,32 @@ public with sharing class InsuranceFAQs {
 	
 	public class Response {
 		@InvocableVariable 
-		public LLMResponse answer;
+		public AvailableLLMResponse availableResponse;
 	}
+
+    
     
 	@InvocableMethod(label='Insurance FAQs' description='Insurance Related FAQs')
 	public static List<Response> getAnswerToFAQs (List<Request> requests){
 	
 	List<Response> results = new List<Response>();
-	
+	List<ResponseAnswer> listResAns = new List<ResponseAnswer>();
+
 	for(Request req : requests){
 		Response res = new Response();
-		res.answer = invokePromptTemplate(req.question);
-        system.debug('res.answer-->'+res.answer);
-		results.add(res);
+        LLMResponse llmAnswer = new LLMResponse();
+		llmAnswer = invokePromptTemplate(req.question);
+        ResponseAnswer resAns = new ResponseAnswer(llmAnswer.response.text,llmAnswer.response.source);//,llmAnswer.response.source
+        listResAns.add(resAns);
+        // res.availableResponse.ResAnswer.add(resAns);
+        // system.debug('res.answer-->'+res.answer);
+		// results.add(res);
 	}
+    AvailableLLMResponse avLlmRes = new AvailableLLMResponse();
+    avLlmRes.ResAnswer = listResAns;
+    Response res = new Response();
+    res.availableResponse = avLlmRes;
+    results.add(res);
 	return results;
 	
 	}
@@ -62,24 +74,8 @@ public with sharing class InsuranceFAQs {
         }
  	}
     
-    public class LLMResponse{
-       @InvocableVariable
-		public ResponseLLM response;
-    }
-    public class ResponseLLM{
-    //     @AuraEnabled
-    //     public String text;
-    //    @AuraEnabled
-    //     public List<Source> source;
-        @InvocableVariable
-        public List<AnsRes> ans;
-    }
-    public class AnsRes{
-        @InvocableVariable
-        public String text; 
-        // @AuraEnabled
-        // public String source;
-    }
+    
+    
     
     
 }
