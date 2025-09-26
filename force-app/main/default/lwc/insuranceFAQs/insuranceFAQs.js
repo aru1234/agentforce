@@ -22,13 +22,13 @@ export default class InsuranceFAQs extends LightningElement {
             console.log('value exists '+this.value);
             console.log('parsed value '+JSON.stringify(this.value));
             const parsedValue = this.value;
-            if(parsedValue.ResAnswer && Array.isArray(parsedValue.ResAnswer) && parsedValue.ResAnwer.length > 0) {
+            if(parsedValue.ResAnswer && Array.isArray(parsedValue.ResAnswer) && parsedValue.ResAnswer.length > 0) {
                 this.text = parsedValue.ResAnswer[0].text;
                 this.source = parsedValue.ResAnswer[0].source[0].source_Id;
-            } else {
-                this.text = undefined;
-                this.source = undefined;
-            }
+             } else {
+                 this.text = undefined;
+                 this.source = undefined;
+             }
             
             console.log('text '+this.text); 
             console.log('source '+this.source);
