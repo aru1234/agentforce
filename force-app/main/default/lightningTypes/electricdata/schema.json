@@ -1,0 +1,5 @@
+{
+  "title": "My Electricity Load Response",
+  "description": "My Electricity Load Response",
+  "lightning:type": "@apexClassType/c__ElectricityLoadIncreaseEstimator$AvailablePrice"
+}
