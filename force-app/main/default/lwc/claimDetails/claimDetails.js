@@ -6,6 +6,8 @@ export default class ClaimDetails extends LightningElement {
     description;
     claimType;
     claimDate;
+    policyNumber;
+    contact;
 
     @api
     get value(){
@@ -27,16 +29,22 @@ export default class ClaimDetails extends LightningElement {
                 this.description = parsedValue.claims[0].description;
                 this.claimType = parsedValue.claims[0].claimType;
                 this.claimDate = parsedValue.claims[0].claimDate;
+                this.policyNumber = parsedValue.claims[0].policyNumber;
+                this.contact = parsedValue.claims[0].contact;
             } else {
                 this.name = undefined;
                 this.description = undefined;
                 this.claimType = undefined;
                 this.claimDate = undefined;
+                this.policyNumber = undefined;
+                this.contact = undefined;
             }
             console.log("name:"+this.name);
             console.log("description:"+this.description);
             console.log("claimType:"+this.claimType);
             console.log("claimDate:"+this.claimDate);
+            console.log("policyNumber:"+this.policyNumber);
+            console.log("contact:"+this.contact);
         }
     }
 }

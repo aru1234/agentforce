@@ -13,12 +13,27 @@ global class InsuranceAgent {
             claim.Description__c = crf.description;
             claim.Claim_Type__c = crf.claimType;
             claim.Claim_Date__c = crf.claimDate;
-            claimsToInsert.add(claim);
-            Claim claimSub = new Claim(crf.name,crf.description,crf.claimType,crf.claimDate);
-            claims.add(claimSub);
-        }
-        insert claimsToInsert;
+            claim.Policy_Number__c = crf.policyNumber;
+            claim.Status__c = 'New';
+            List<Policy__c> policies = [SELECT Id, contact__c, contact__r.Phone FROM Policy__c WHERE Policy_Number__c = :crf.policyNumber];
+            if(policies.size() > 0){
+                claim.Policy__c = policies[0].Id;
+                claim.Contact__c = policies[0].Contact__c;
+                claimsToInsert.add(claim);
+                Claim claimSub = new Claim(crf.name,crf.description,crf.claimType,crf.claimDate,crf.policyNumber,policies[0].Contact__r.Phone);
+                claims.add(claimSub);
+            } else {
+                Claim claimSub = new Claim(crf.name,crf.description,crf.claimType,crf.claimDate,crf.policyNumber,policies[0].Contact__r.Phone);
+                claims.add(claimSub);
 
+            }
+
+            
+        }
+        if(claimsToInsert.size() > 0){
+            insert claimsToInsert;
+        }
+        
         List<ClaimResponse> claimResponses = new List<ClaimResponse>();
 
         // For example, we hardcode the data and don’t focus on how we retrieve it.

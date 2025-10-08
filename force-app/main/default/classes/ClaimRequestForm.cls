@@ -12,5 +12,8 @@ global class ClaimRequestForm {
     @AuraEnabled
     global Date claimDate;
 
+    @AuraEnabled
+    global String policyNumber;
+
 
 }

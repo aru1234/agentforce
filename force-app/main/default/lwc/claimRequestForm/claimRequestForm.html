@@ -4,7 +4,8 @@
             <form class="slds-form slds-form_stacked">
                 <div class="slds-m-bottom_medium">
                     <lightning-input 
-                        label="Enter Claim Type (Accident/Theft/Natural Disaster)" 
+                        label="Enter Claim Type (Accident/Theft/Natural Disaster)"
+                        data-id="claimType" 
                         name="claimType"
                         value={claimType} 
                         type="text" 
@@ -45,7 +46,16 @@
                         read-only={readOnly}>
                     </lightning-input>
                 </div>
-
+                <div class="slds-m-bottom_medium">
+                    <lightning-input 
+                        label="Enter Policy Number" 
+                        name="policyNumber"
+                        value={policyNumber} 
+                        type="text" 
+                        onchange={handleInputChange}
+                        read-only={readOnly}>
+                    </lightning-input>
+                </div>
                 <!-- <div class="slds-m-top_medium slds-text-align_right">
                     <lightning-button variant="brand" label="Submit Claim" type="button" onclick={handleClick}></lightning-button>
                 </div> -->

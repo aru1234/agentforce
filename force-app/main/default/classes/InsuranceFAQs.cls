@@ -10,8 +10,6 @@ public with sharing class InsuranceFAQs {
 		public AvailableLLMResponse availableResponse;
 	}
 
-    
-    
 	@InvocableMethod(label='Insurance FAQs' description='Insurance Related FAQs')
 	public static List<Response> getAnswerToFAQs (List<Request> requests){
 	
@@ -64,18 +62,10 @@ public with sharing class InsuranceFAQs {
             ConnectApi.EinsteinLLMGenerationItemOutput response = generationsOutput.generations[0];
             System.debug('response==>'+response.text);
            	return (LLMResponse) JSON.deserialize(response.text,LLMResponse.class);
-            
-            
-			
         } catch (Exception e) {
             System.debug(e.getMessage());
             return null;
             //throw e;
         }
  	}
-    
-    
-    
-    
-    
 }

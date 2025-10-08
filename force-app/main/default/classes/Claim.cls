@@ -12,10 +12,18 @@ global class Claim {
     @AuraEnabled
     global Date claimDate;
 
-    global Claim(String name,String description,String claimType, Date claimDate){
+    @AuraEnabled
+    global String policyNumber;
+
+    @AuraEnabled
+    global String contact;
+
+    global Claim(String name,String description,String claimType, Date claimDate, String policyNumber, String contact){
         this.name=name;
         this.description=description;
         this.claimType=claimType;
         this.claimDate=claimDate;
+        this.policyNumber=policyNumber;
+        this.contact=contact;
     }
 }
