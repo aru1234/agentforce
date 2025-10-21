@@ -32,7 +32,7 @@ export default class FlightFilter extends LightningElement {
   description;
   claimType;
   claimDate;
-  //claimId;
+  policyNumber;
 
   connectedCallback() {
     if (this.value) {
@@ -40,8 +40,11 @@ export default class FlightFilter extends LightningElement {
       this.description = this.value?.description || "";
       this.claimType = this.value?.claimType || "";
       this.claimDate = this.value?.claimDate || "";
+      this.policyNumber = this.value?.policyNumber || "";
+
     }
   }
+ 
   handleInputChange(event) {
     event.stopPropagation();
     const { name, value } = event.target;
@@ -51,9 +54,8 @@ export default class FlightFilter extends LightningElement {
   console.log("description==>", this.description);
   console.log("claimType==>", this.claimType);
   console.log("claimDate==>", this.claimDate);
-    
-  
-
+  console.log("policyNumber==>", this.policyNumber);
+    this.validateInput();
     this.dispatchEvent(
       new CustomEvent("valuechange", {
         detail: {
@@ -62,11 +64,29 @@ export default class FlightFilter extends LightningElement {
             description: this.description,
             claimType: this.claimType,
             claimDate: this.claimDate,
+            policyNumber: this.policyNumber,
+            contact:this.contact
           },
         },
       }),
     );
   }
+
+  validateInput() {
+        const inputField = this.template.querySelector('[data-id="claimType"]');
+
+        if (inputField) {
+            this.inputValue = inputField.value;
+            if (this.inputValue === "Accident" || this.inputValue === "Theft" || this.inputValue === "Natural Disaster") {
+              console.log("Inside if part==>",this.inputValue);  
+              inputField.setCustomValidity(''); // Clear any previous error
+            } else {
+              console.log("Inside else part==>",this.inputValue);
+              inputField.setCustomValidity('Value does not match the required string.');  
+            }
+            inputField.reportValidity(); // Display the message
+        }
+    }
   // handleClick() {
   
   //   //3. Map the data to the fields
